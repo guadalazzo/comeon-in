@@ -110,7 +110,7 @@ Sample Payload for screen 2
    id: 0,
    username: "harish.kulur",
    password: "secret",
-   email: 'harish.kulur@comeon.com',
+   email: 'john.doe@comeon.com',
    phone: "46-700111000",
    acceptMarketing: true
 }
@@ -125,7 +125,7 @@ Sample Response for screen-2  (**200 OK**)
    username: "harish.kulur",
    password: "secret",
    showEmailPhoneScreen: false,
-   email: 'harish.kulur@comeon.com',
+   email: 'john.doe@comeon.com',
    phone: "46-700111000",
    acceptMarketing: true,
    showTermsAndCondition: true,
