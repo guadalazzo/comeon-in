@@ -9,9 +9,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://sth-gitlab01.cleverdolphin.se/majid.parvin/login-registration-flow-challenge.git"
+    "url": "https://github.com/comeon-stockholm/comeon-in.git"
   },
-  "author": "Majid",
+  "author": "Comeon Team",
   "license": "ISC",
   "devDependencies": {
     "json-server": "^0.16.1"
