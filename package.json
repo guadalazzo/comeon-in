@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/comeon-stockholm/comeon-in.git"
   },
-  "author": "Comeon Team",
+  "author": "Majid",
   "license": "ISC",
   "devDependencies": {
     "json-server": "^0.16.1"
