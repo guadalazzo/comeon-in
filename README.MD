@@ -152,3 +152,7 @@ Start with an empty public GitHub repository and keep committing code as you dev
 run the app. As a deliverable provide the URL to the repository.
 
 Good luck, and happy coding!
+
+## Found a bug?
+
+Pull requests are welcome. 
