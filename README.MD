@@ -123,7 +123,6 @@ Sample Response for screen-2  (**200 OK**)
 {
    id: 0,
    username: "harish.kulur",
-   password: "secret",
    showEmailPhoneScreen: false,
    email: 'john.doe@comeon.com',
    phone: "46-700111000",
