@@ -54,27 +54,18 @@ const players = [
   }
 ];
 
-const authenticate = (req, res, signup) => {
+const authenticate = (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const player = players.find(player => player.username === username);
-
-  if (player && player.password === password && !signup) {
+  if (player && player.password === password) {
     const response = { ...player };
     delete response.password;
     res.status(200).json({
       status: "SUCCESS",
       response
     });
-  } else if (player && signup) {
-    res.status(400).json({
-      status: "FAILURE",
-      response: {
-        errorKey: "PLAYER_EXISTS",
-        errorDescription: "Already have account. Please login"
-      }
-    });
-  } else if (!player && signup) {
+  } else if (!player) {
     const newPlayer = {
       id: players.length,
       username,
@@ -152,8 +143,6 @@ server.use((req, res, next) => {
   if (req.method === "POST") {
     if (req.path === "/authenticate") {
       return authenticate(req, res);
-    } else if (req.path === "/signup") {
-      return authenticate(req, res, true);
     } else if (req.path === "/logout") {
       const user = players.filter(player => player.id === req.body.id)[0]
 
