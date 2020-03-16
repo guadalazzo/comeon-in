@@ -53,6 +53,7 @@ npm install
 npm start
 
 ```
+The server will start running in port 3003
 
 ### API
 
