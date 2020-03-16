@@ -167,6 +167,6 @@ server.use((req, res, next) => {
   next();
 });
 
-server.listen(3001, () => {
-  console.log("JSON Server is running");
+server.listen(3003, () => {
+  console.log("JSON Server is running at 3003");
 });
