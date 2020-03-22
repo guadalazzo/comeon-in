@@ -12,7 +12,7 @@ const players = [
   {
     id: 0,
     username: "harish.kulur",
-    password: "secret",
+    password: "secret00",
     showEmailPhoneScreen: true,
     showTermsAndCondition: false,
     showWelcomeScreen: true
@@ -20,7 +20,7 @@ const players = [
   {
     id: 1,
     username: "johnny.mirkovic",
-    password: "secret",
+    password: "secret00",
     showEmailPhoneScreen: false,
     email: "john.doe@comeon.com",
     phone: "46-700111000",
@@ -31,7 +31,7 @@ const players = [
   {
     id: 2,
     username: "murat.bosnak",
-    password: "secret",
+    password: "secret00",
     showEmailPhoneScreen: false,
     email: "john.doe@comeon.com",
     phone: "46-700111000",
@@ -43,7 +43,7 @@ const players = [
   {
     id: 3,
     username: "majid.parvin",
-    password: "secret",
+    password: "secret00",
     showEmailPhoneScreen: false,
     email: "john.doe@comeon.com",
     phone: "46-700111000",
