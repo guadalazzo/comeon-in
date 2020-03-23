@@ -1,46 +1,28 @@
-# Coding Assignment – Frontend Developer
+<h1 align="center">Welcome to Frontend Challenge for ComeOn - backend 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <a href="https://github.com/guadalazzo/comeOn#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/guadalazzo/comeOn/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/guadalazzo/comeOn/blob/master/LICENSE" target="_blank">
+    <img alt="License: ISC" src="https://img.shields.io/github/license/guadalazzo/Frontend Challenge for ComeOn - front" />
+  </a>
+  <a href="https://twitter.com/luppelazzo" target="_blank">
+    <img alt="Twitter: luppelazzo" src="https://img.shields.io/twitter/follow/luppelazzo.svg?style=social" />
+  </a>
+</p>
 
-Please note that this is not a comprehensive exercise and you may do it as per your convenience. Please feel free to make any assumptions however please mention them somewhere either in the code or in a README.
+A simple Registration and login flow created in react without any precreated setups connected to a node server, it use formik and Yup for validations, Jest for unit testing, Sass as a css preprocessor, and eslint as code formatter.
 
-It’s not important to do a lot however your solution will set the context for discussion over the interview, so try to account for everything you would need when it comes to architecting a _seamless, responsive, performant and slick user-interface._
-
-## Description
-
-We want you to develop a **registration and login flow** which includes the following screens:
-
-### 1. Registration/Login Screen
-
-   <img src="images/login-screen.png" width="200">
-   <br/>
-   <br/>
-
-### 2. User Information Screen
-
-   <img src="images/information-screen.png" width="200">
-   <br/>
-   <br/>
-
-### 3. Terms and Conditions Screen
-
-   <img src="images/terms-conditions-screen.png" width="200">
-   <br/>
-   <br/>
-
-### 4. Welcome Screen
-
-   <img src="images/welcome-screen.png" width="200">
-   <br/>
-   <br/>
-
-First screen is common for both registration and login. On successful authentication, based on the sample/mocked response, show the appropriate screen.
-
-The screens provided are only wireframes and you can get creative with the actual look and feel of the app. You can use any fonts, icons, images, svgs etc of your preference. You can use any UI library to build your components.
-
-User should be able to navigate between different steps of the flow seamlessly, without losing state and if the user drops off, the data should be persisted and upon returning, user should be able to resume from the same screen.
 
 ## Mock Server
 
-We are using json-server to run a mock server.
+We are using json-server to run a mock server. Nodemon for recharging on change, and jwt for creating the token.
+What I've change?
+Changed the response for security, I send a jwt token who have the user info, then the frontend will decoded and save it on context. 
 
 Steps to run:
 
@@ -76,13 +58,20 @@ Successful Response **200 OK**
 
 ```
 {
-    id: 0,
-    username: "harish.kulur",
-    showEmailPhoneScreen: true,
-    showTermsAndCondition: false,
-    showWelcomeScreen: false
+    status:"SUCCESS",
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJoYXJpc2giLCJwYXNzd29yZCI6InNlY3JldDAwIiwic2hvd0VtYWlsUGhvbmVTY3JlZW4iOnRydWUsInNob3dUZXJtc0FuZENvbmRpdGlvbiI6ZmFsc2UsInNob3dXZWxjb21lU2NyZWVuIjpmYWxzZSwiaWF0IjoxNTg0OTcyODI3LCJleHAiOjE1ODUwNTkyMjd9"
 }
 
+```
+
+```
+    token: {
+      id: 0,
+      username: "harish.kulur",
+      showEmailPhoneScreen: true,
+      showTermsAndCondition: false,
+      showWelcomeScreen: false
+      }
 ```
 
 Failure Response **401 Unauthorized**
@@ -122,6 +111,14 @@ Sample Response for screen-2  (**200 OK**)
 
 ```
 {
+   status: "SUCCESS",
+   token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJoYXJpc2giLCJwYXNzd29yZCI6InNlY3JldDAwIiwic2hvd0VtYWlsUGhvbmVTY3JlZW4iOnRydWUsInNob3dUZXJtc0FuZENvbmRpdGlvbiI6ZmFsc2UsInNob3dXZWxjb21lU2NyZWVuIjpmYWxzZSwiaWF0IjoxNTg0OTcyODI3LCJleHAiOjE1ODUwNTkyMjd9"
+}
+
+```
+
+```
+token:{
    id: 0,
    username: "harish.kulur",
    showEmailPhoneScreen: false,
@@ -131,27 +128,8 @@ Sample Response for screen-2  (**200 OK**)
    showTermsAndCondition: true,
    showWelcomeScreen: false
 }
-
 ```
 
-Refer to the players object in **server.js** for full API. Feel free to edit **server.js** if needed.
-
-## Must have
-
-- Use React and other libraries from the React ecosystem if needed.
-
-## Good to have
-
-- Good Tooling.
-- Unit Tests
-- Documentation
-
-## Deliverables
-
-Start with an empty public GitHub repository and keep committing code as you develop your solution. Repository must include a README file which provides instructions on how to build and
-run the app. As a deliverable provide the URL to the repository.
-
-Good luck, and happy coding!
 
 ## Found a bug?
 
