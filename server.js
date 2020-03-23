@@ -1,6 +1,8 @@
 const jsonServer = require("json-server");
 const server = jsonServer.create();
 const middlewares = jsonServer.defaults();
+var jwt = require('jsonwebtoken')
+
 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares);
@@ -21,6 +23,7 @@ const players = [
     id: 1,
     username: "johnny.mirkovic",
     password: "secret00",
+    //hash
     showEmailPhoneScreen: false,
     email: "john.doe@comeon.com",
     phone: "46-700111000",
@@ -54,18 +57,26 @@ const players = [
   }
 ];
 
+const jwtTokenData = (data) => {
+  const tokenData = data;
+  const token = jwt.sign(tokenData, 'cute kitties', {
+    expiresIn: 60 * 60 * 24 // expires in 24 hours
+  })
+  return token;
+}
 const authenticate = (req, res) => {
   const username = req.body.username;
-  const password = req.body.password;
+  const password = req.body.password
   const player = players.find(player => player.username === username);
   if (player && player.password === password) {
-    const response = { ...player };
-    delete response.password;
+   
+  
     res.status(200).json({
       status: "SUCCESS",
-      response
+      token:jwtTokenData(player)
     });
   } else if (!player) {
+    console.log('not found', player);
     const newPlayer = {
       id: players.length,
       username,
@@ -75,11 +86,10 @@ const authenticate = (req, res) => {
       showWelcomeScreen: false
     };
     players.push(newPlayer);
-    const response = { ...newPlayer };
-    delete response.password;
+
     res.status(200).json({
       status: "SUCCESS",
-      response
+      token:jwtTokenData(newPlayer)
     });
   } else {
     res.status(401).json({
@@ -118,15 +128,13 @@ const updatePlayer = (req, res) => {
   const playerIndex = players.findIndex(player => player.id === id);
   if (playerIndex > -1) {
     let newPlayer = { ...players[playerIndex], ...req.body };
-    // Adding the override to let user navigate further
     const overrides = playerAttributes(req)
     newPlayer = {...newPlayer, ...overrides}
     players[playerIndex] = newPlayer;
-    const response = {...newPlayer};
-    delete response.password;
+    
     res.status(200).json({
       status: "SUCCESS",
-      response
+      token: jwtTokenData(newPlayer),
     });
   } else {
     res.status(200).json({
